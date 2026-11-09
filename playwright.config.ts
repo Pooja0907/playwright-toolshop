@@ -35,12 +35,7 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { trace: 'on-first-retry', },
-   
-    },
-     {
+        {
       name: 'ui',
       testDir: './tests/ui',
       use: { ...devices['Desktop Chrome'] },
