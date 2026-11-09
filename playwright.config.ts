@@ -30,23 +30,24 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+     testIdAttribute: 'data-test',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
+      use: { trace: 'on-first-retry', },
+   
+    },
+     {
+      name: 'ui',
+      testDir: './tests/ui',
       use: { ...devices['Desktop Chrome'] },
     },
-
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'api',
+      testDir: './tests/api',
     },
 
     /* Test against mobile viewports. */
